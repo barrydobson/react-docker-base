@@ -31,6 +31,14 @@ Then just carry on developing in your local machine and the container should pic
 
 A docker-compose file is used to start up the development container. The compose file only contains the react application when you start out. The reason for using a compose file is so that you can easily add any dependancies you need to run at development time, such as a database, or API containers. Just add to the `docker-compose-local.yaml` file.
 
+### Running unit tests
+
+To run the unit tests simply run:
+
+```shell
+make run-ci
+```
+
 ### Building a final release
 
 When you're happy with your app and want to package it up ready to host somewhere like Azure App Service for Containers or Kubernetes, run the following command:

@@ -18,6 +18,10 @@ run-local: ## Run the React App in local development mode
 	@echo "Running App..."
 	docker-compose -f docker-compose-local.yaml up --build 
 
+run-ci: ## Run all tests as per CI
+	@echo "Starting Tests..."
+	docker-compose -f docker-compose-local.yaml run --rm --no-deps -e CI=true react-app npm test
+
 build-prod: ## Make final build
 	@echo "Making build..."
 	docker build -t react-app-build -f Dockerfile-production .
