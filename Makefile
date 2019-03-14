@@ -20,8 +20,8 @@ run-local: ## Run the React App in local development mode
 
 build-prod: ## Make final build
 	@echo "Making build..."
-	docker build -t react-app-prod -f Dockerfile-production .
+	docker build -t react-app-build -f Dockerfile-production .
 
 run-prod: ## Run production container
-	@echo "Running production container..."
-	docker run --rm -it -p 3001:80 -e ENVIRONMENT=$(ENV) react-app-prod
+	@echo "Running production container on http://localhost:3001/"
+	docker run --rm -it -p 3001:80 -e ENVIRONMENT=$(ENV) react-app-build
