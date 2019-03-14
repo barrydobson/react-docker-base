@@ -17,6 +17,10 @@ make cra
 
 This will recreate the `src` directory and create a new React application.
 
+### Using an existing application
+
+If you already have a react application you can place it into the `src` folder
+
 ### Running in Development mode
 
 In order to run the appplicaiton locally with hot reload, just run:
