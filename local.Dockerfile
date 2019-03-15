@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-COPY ./src/package.json ./src/yarn.lock ./
+COPY ./react-app/package.json ./react-app/yarn.lock ./
 
 RUN yarn install
 RUN npm install react-scripts@2.1.8 -g --silent

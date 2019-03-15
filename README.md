@@ -9,17 +9,17 @@ During development you get features like hot reload without having to keep rebui
 
 ### Creating a new application
 
-The react application is contained within the `src` directory, when cloning from here you should find it as created by Create-React-App with no added features. If you want to create a new app, simply delete teh `src` folder and run the following Make command from the root directory: 
+The react application is contained within the `react-app` directory, when cloning from here you should find it as created by Create-React-App with no added features. If you want to create a new app, simply delete teh `react-app` folder and run the following Make command from the root directory: 
 
 ```shell
 make cra
 ```
 
-This will recreate the `src` directory and create a new React application.
+This will recreate the `react-app` directory and create a new React application.
 
 ### Using an existing application
 
-If you already have a react application you can place it into the `src` folder
+If you already have a react application you can place it into the `react-app` folder
 
 ### Running in Development mode
 

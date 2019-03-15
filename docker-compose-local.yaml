@@ -5,9 +5,9 @@ services:
     container_name: react-app
     build:
       context: .
-      dockerfile: Dockerfile-local
+      dockerfile: local.Dockerfile
     volumes:
-      - './src:/usr/src/app'
+      - './react-app:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
       - '3000:3000'

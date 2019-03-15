@@ -1,4 +1,4 @@
-node_modules
-src/node_modules
+react-app/node_modules
 .git
 .vscode
+README.md

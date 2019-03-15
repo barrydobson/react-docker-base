@@ -12,7 +12,7 @@ ENV ?= local
 
 cra: ## Create React App "
 	docker build -f Dockerfile-cra -t cra .
-	docker run --rm --name cra-container -it -v ${PWD}:/usr/src cra /bin/sh -c "create-react-app src"	
+	docker run --rm --name cra-container -it -v ${PWD}:/usr/src cra /bin/sh -c "create-react-app react-app"	
 
 run-local: ## Run the React App in local development mode
 	@echo "Running App..."

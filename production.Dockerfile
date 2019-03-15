@@ -3,10 +3,10 @@ FROM node:10.15.3-alpine as build-deps
 WORKDIR /usr/src/app
 RUN npm install react-scripts@2.1.8 -g --silent
 
-COPY ./src/package.json ./src/yarn.lock ./
+COPY ./react-app/package.json ./react-app/yarn.lock ./
 
 RUN yarn
-COPY ./src/ ./
+COPY ./react-app/ ./
 RUN CI=true npm test
 RUN yarn build
 
