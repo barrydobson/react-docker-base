@@ -2,3 +2,4 @@ react-app/node_modules
 .git
 .vscode
 README.md
+react-app/public/config.json

@@ -11,7 +11,7 @@ help: ## This help.
 ENV ?= local
 
 cra: ## Create React App "
-	docker build -f Dockerfile-cra -t cra .
+	docker build -f cra.Dockerfile -t cra .
 	docker run --rm --name cra-container -it -v ${PWD}:/usr/src cra /bin/sh -c "create-react-app react-app"	
 
 run-local: ## Run the React App in local development mode
@@ -24,7 +24,7 @@ run-ci: ## Run all tests as per CI
 
 build-prod: ## Make final build
 	@echo "Making build..."
-	docker build -t react-app-build -f Dockerfile-production .
+	docker build -t react-app-build -f production.Dockerfile .
 
 run-prod: ## Run production container
 	@echo "Running production container on http://localhost:3001/"

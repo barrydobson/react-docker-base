@@ -7,8 +7,9 @@ services:
       context: .
       dockerfile: local.Dockerfile
     volumes:
+      - './config/client-side/local.json:/usr/src/app/public/config.json'
       - './react-app:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - '/usr/src/app/node_modules'     
     ports:
       - '3000:3000'
     environment:

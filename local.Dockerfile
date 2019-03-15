@@ -10,5 +10,4 @@ COPY ./react-app/package.json ./react-app/yarn.lock ./
 RUN yarn install
 RUN npm install react-scripts@2.1.8 -g --silent
 
-# start app
-CMD ["npm", "start"]
+CMD npm start
