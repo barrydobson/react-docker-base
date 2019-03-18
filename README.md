@@ -26,7 +26,7 @@ If you already have a react application you can place it into the `react-app` fo
 In order to run the appplicaiton locally with hot reload, just run:
 
 ```shell
-make run-local
+make dev
 ```
 
 This will start up the application and it will be available on [localhost:3000](http://localhost:3000)
@@ -40,25 +40,17 @@ A docker-compose file is used to start up the development container. The compose
 To run the unit tests simply run:
 
 ```shell
-make run-ci
+make test
 ```
 
 ### Building a final release
 
 When you're happy with your app and want to package it up ready to host somewhere like Azure App Service for Containers or Kubernetes, run the following command:
 
-```shel
-make build-prod
-```
-
-This will build the application, and deploy it into a small Nginx container ready to host. The container is tagged as `react-app-build`.
-
-### Running the final build
-
 To run the final build:
 
 ```shell
-make run-prod ENV=env_name
+make prod ENV=env_name
 ```
 
 This command will take the image that was build in previous command and run it. It will be available on [localhost:3001](http://localhost:3001)
@@ -75,4 +67,4 @@ When you run the container you supply the `ENV` parameter to the Make command, w
 
 ### Nginx Configuration
 
-A basic Nginx configuration file supplied in `lib\nginx.conf`. This file will be copied into Nginx as the `conf.d\default.conf`. It is setup to allow React router to function correctly.
+A basic Nginx configuration file supplied in `config\nginx\nginx.conf`. This file will be copied into Nginx as the `conf.d\default.conf`. It is setup to allow React router to function correctly.

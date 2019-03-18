@@ -11,8 +11,8 @@ RUN CI=true npm test
 RUN yarn build
 
 FROM nginx:1.15.9-alpine
-ARG ENVIRONMENT=local
-ENV ENVIRONMENT="${ENVIRONMENT}"
+ARG CLIENT_ENVIRONMENT=local
+ENV CLIENT_ENVIRONMENT="${CLIENT_ENVIRONMENT}"
 COPY ./config/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./lib/launch-prod.sh ./
 RUN chmod +x launch-prod.sh

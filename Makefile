@@ -14,18 +14,17 @@ cra: ## Create React App "
 	docker build -f cra.Dockerfile -t cra .
 	docker run --rm --name cra-container -it -v ${PWD}:/usr/src cra /bin/sh -c "create-react-app react-app"	
 
-run-local: ## Run the React App in local development mode
-	@echo "Running App..."
-	docker-compose -f docker-compose-local.yaml up --build 
+dev: ## Run in local development mode
+	@echo "Starting development server..."
+	@docker-compose build dev
+	@docker-compose up dev
 
-run-ci: ## Run all tests as per CI
-	@echo "Starting Tests..."
-	docker-compose -f docker-compose-local.yaml run --rm --no-deps -e CI=true react-app npm test
+test: ## Run unit testing
+	@echo "Running unit tests..."
+	@docker-compose build test
+	@docker-compose run --rm test
 
-build-prod: ## Make final build
-	@echo "Making build..."
-	docker build -t react-app-build -f production.Dockerfile .
-
-run-prod: ## Run production container
-	@echo "Running production container on http://localhost:3001/"
-	docker run --rm -it -p 3001:80 -e ENVIRONMENT=$(ENV) react-app-build
+prod: ## Run production build
+	@echo "Running production build..."
+	@docker-compose build prod
+	@docker-compose run --rm --service-ports -e CLIENT_ENVIRONMENT=$(ENV) prod

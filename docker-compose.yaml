@@ -1,0 +1,40 @@
+version: '3.5'
+
+services:
+  dev:
+    container_name: react-app-dev
+    build:
+      context: .
+      dockerfile: local.Dockerfile
+    volumes:
+      - './config/client-side/local.json:/usr/src/app/public/config.json'
+      - './react-app:/usr/src/app'
+      - '/usr/src/app/node_modules'     
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+  test:
+    container_name: react-app-test
+    build:
+      context: .
+      dockerfile: local.Dockerfile
+    volumes:
+      - './config/client-side/local.json:/usr/src/app/public/config.json'
+      - './react-app:/usr/src/app'
+      - '/usr/src/app/node_modules'     
+    environment:
+      - CI=true
+    command: npm test
+
+  prod:
+    container_name: react-app-prod
+    build:
+      context: .
+      dockerfile: production.Dockerfile 
+    ports:
+      - '3001:80'
+    environment:
+      - NODE_ENV=production
+      - CLIENT_ENVIRONMENT=production
